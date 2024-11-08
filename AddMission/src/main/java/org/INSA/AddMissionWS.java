@@ -28,26 +28,29 @@ public class AddMissionWS {
         	}
         	switch(type) {
 	        	case -1: //CLIENT
-	        		String req = "INSERT INTO mission (titre, client_id) VALUES (?, ?)";
+	        		String req = "INSERT INTO mission (titre, client_id, status) VALUES (?, ?, ?)";
 	        		try (PreparedStatement statement = connexion.prepareStatement(req)) {
 	                    statement.setString(1, titre);
 	                    statement.setInt(2, user_id);
+	                    statement.setString(3, "waiting");
 	                    statement.executeUpdate();
 	                    System.out.println("OK");
 	                }
 	        	case 0: //VALIDEUR
-	        		String req2 = "INSERT INTO mission (titre, valideur_id) VALUES (?, ?)";
+	        		String req2 = "INSERT INTO mission (titre, valideur_id, status) VALUES (?, ?, ?)";
 	        		try (PreparedStatement statement = connexion.prepareStatement(req2)) {
 	                    statement.setString(1, titre);
 	                    statement.setInt(2, user_id);
+	                    statement.setString(3, "validated");
 	                    statement.executeUpdate();
 	                    System.out.println("OK");
 	                }
 	        	case 1: //BENEVOLE
-	        		String req3 = "INSERT INTO mission (titre, benevole_id) VALUES (?, ?)";
+	        		String req3 = "INSERT INTO mission (titre, benevole_id, status) VALUES (?, ?, ?)";
 	        		try (PreparedStatement statement = connexion.prepareStatement(req3)) {
 	                    statement.setString(1, titre);
 	                    statement.setInt(2, user_id);
+	                    statement.setString(3, "waiting");
 	                    statement.executeUpdate();
 	                    System.out.println("OK");
 	                }
