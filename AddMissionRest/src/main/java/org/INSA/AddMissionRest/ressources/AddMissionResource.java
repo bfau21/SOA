@@ -1,4 +1,4 @@
-package org.INSA.AddMissionRest;
+package org.INSA.AddMissionRest.ressources;
 
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
@@ -66,4 +66,10 @@ public class AddMissionResource {
                     .build();
         }
     }
+	
+	@GET
+	public int test() {
+		System.out.println("test");
+		return 12;
+	}
 }

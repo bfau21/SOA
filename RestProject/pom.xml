@@ -4,13 +4,13 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.INSA</groupId>
-    <artifactId>AddMissionRest</artifactId>
+    <artifactId>RestProject</artifactId>
     <packaging>war</packaging>
     <version>0.0.1-SNAPSHOT</version>
-    <name>AddMissionRest</name>
+    <name>RestProject</name>
 
     <build>
-        <finalName>AddMissionRest</finalName>
+        <finalName>RestProject</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -64,12 +64,6 @@
 			<version>5.0.0</version>
 			<scope>provided</scope>
 		</dependency>
-		
-		<dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <version>8.0.33</version>
-        </dependency>
        
     </dependencies>
     <properties>
