@@ -1,9 +1,15 @@
 package org.INSA.AddMissionRest.ressources;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
-import java.sql.*;
+
 
 @Path("missions")
 public class AddMissionResource {
@@ -16,7 +22,9 @@ public class AddMissionResource {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.TEXT_PLAIN)
     public Response addMission(@PathParam("user_id") int user_id, @PathParam("titre") String titre) {
-        try (Connection connexion = DriverManager.getConnection(URL, USER, PASSWORD)) {
+        try {
+           	Connection connexion = DriverManager.getConnection(URL, USER, PASSWORD);   
+         	System.out.println("*****");
             int type = -2;
             String req0 = "SELECT type FROM user WHERE id = ?";
             try (PreparedStatement statement = connexion.prepareStatement(req0)) {
@@ -61,6 +69,7 @@ public class AddMissionResource {
             }
 
         } catch (SQLException e) {
+        	System.out.println("/////");
             return Response.status(Response.Status.INTERNAL_SERVER_ERROR)
                     .entity("Erreur connexion base de données: " + e.getMessage())
                     .build();
