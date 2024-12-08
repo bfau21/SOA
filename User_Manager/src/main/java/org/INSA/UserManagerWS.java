@@ -23,7 +23,7 @@ public class UserManagerWS {
                 System.out.println("OK");
             }
         } catch (SQLException e) {
-        	if (e.getErrorCode() == 1062) {  // Code d'erreur pour contrainte unique
+        	if (e.getErrorCode() == 1062) {  
                 System.out.println("Nom d'utilisateur déjà existant");
             } else {
                 System.out.println("Erreur ajout user: " + e.getMessage());
